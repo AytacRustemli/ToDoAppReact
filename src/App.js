@@ -1,14 +1,16 @@
-import './App.css';
+import React from "react";
+import "./App.css";
+import Auth from "./screens/Auth";
 import Header from './components/Header/Header';
-import MyRouter from './routes/MyRouter';
 
 function App() {
   return (
-   <>
-    <Header />
-    <MyRouter />
-   </>
-  );
+    <>
+      <Header />
+     <Auth/>
+    </>
+   );
+
 }
 
 export default App;

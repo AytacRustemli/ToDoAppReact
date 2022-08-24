@@ -1,4 +1,5 @@
 import { applyMiddleware, combineReducers, createStore } from "@reduxjs/toolkit";
+import { FavoriesReducer } from "./Reducers/FavoriesReducer";
 import { UserReducer } from "./Reducers/UserReducer";
 
 
@@ -6,15 +7,20 @@ const {default: thunk} = require("redux-thunk")
 
 const reducer = combineReducers({
     user: UserReducer,
-   
+    favories: FavoriesReducer,
 })
 
 
 const userInfoFromLocalStorage = localStorage.getItem("userInfo")
 ? JSON.parse(localStorage.getItem("userInfo")) : []
 
+const favoriesItemFromLocalStorage = localStorage.getItem("favoriesItems")
+ ? JSON.parse(localStorage.getItem("favoriesItems")):[]
+
+
 const initialState ={
-    user: {userInfo: userInfoFromLocalStorage}
+    user: {userInfo: userInfoFromLocalStorage},
+    favories:{favoriesItems: favoriesItemFromLocalStorage}
 }
 
 
